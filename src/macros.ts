@@ -8,18 +8,25 @@ export const MACRO_PARAM_TYPE = [
 
 export const MACRO_METHOD_API = [
   '{% macro methodAPI(method) %}',
+    // Utility variables
+    '{% set dotRegExp = r/\\./ %}',
     '{% set comma = joiner(", ") %}',
+
     // Heading
     '\n##### `{{ method.name }}(',
       '{% for param in method.tags.param %}',
-        '{{ comma() }}{{ param.name }}',
+        // Skips parameters with dot in their names
+        // (they are assumed to be sub-properties)
+        '{% if not dotRegExp.test(param.name) %}',
+          '{{ comma() }}{{ param.name }}',
+        '{% endif %}',
       '{% endfor %}',
     ')`\n',
     // description
-    '\n{{ method.description | safe }}\n',
+    '\n{{ method.description }}\n',
     // Parameters
     '\n{% for param in method.tags.param %}',
-      '- `{{ param.name }}` {{ paramType(param.type) }} {{ param.description }}\n',
+      '- `{{ param.name }}` {{ paramType(param.type) }} {% if param.description %}{{ param.description }}{% endif %}{% if param.default %} Default: `{{ param.default }}`{% endif %}\n',
     '{% endfor %}',
     // Return
     '{% if method.tags.return %}',

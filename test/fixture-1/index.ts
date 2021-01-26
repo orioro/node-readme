@@ -17,12 +17,12 @@ import { someModule } from 'some-module'
  * Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
  *
  * @name func1
- * @param {string} strParam Sed ut perspiciatis, unde omnis iste natus error
- *                          sit voluptatem accusantium doloremque laudantium
- * @param {number} numParam Nemo enim ipsam voluptatem, quia voluptas
- *                          sit, aspernatur aut odit aut fugit
+ * @param {string} [strParam=''] Sed ut perspiciatis, unde omnis iste natus error
+ *                          sit voluptatem accusantium doloremque laudantium.
+ * @param {number} [numParam=0] Nemo enim ipsam voluptatem, quia voluptas
+ *                          sit, aspernatur aut odit aut fugit.
  * @return {boolean} result Nam libero tempore, cum soluta nobis est
- *                          eligendi optio
+ *                          eligendi optio.
  */
 const func1 = (
   strParam,
@@ -33,7 +33,9 @@ const func1 = (
  * Aliquam at metus molestie, luctus arcu id, ornare ligula.
  *
  * @name func2
- * @param {string} param1
+ * @param {Object} param1
+ * @param {string} param1.opt1 Some option
+ * @param {string} param1.opt2 Some other option
  * @param {number} param2
  * @return {CustomType} result
  */

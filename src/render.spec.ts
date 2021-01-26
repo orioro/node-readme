@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 import * as path from 'path'
 import {
   render
@@ -13,6 +14,10 @@ describe('render', () => {
       comments: ['**/*.ts']
     }, {
       cwd: FIXTURES_PATH
+    })
+    .then(() => {
+      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/readme.md'), 'utf8'))
+        .toMatchSnapshot()
     })
   })
 })

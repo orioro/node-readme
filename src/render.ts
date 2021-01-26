@@ -1,19 +1,24 @@
 import { Transform } from 'readable-stream'
 import vinylFs from 'vinyl-fs'
 import rename from 'gulp-rename'
-import { renderString } from 'nunjucks'
+import { Environment } from 'nunjucks'
 import { parseComments } from './parseComments'
 import { MACROS } from './macros'
 
-export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => (
-  new Transform({
+export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
+
+  const env = new Environment(null, {
+    autoescape: false
+  })
+
+  return new Transform({
     objectMode: true,
     transform(file, enc, cb) {
       if (file.isStream()) {
         this.emit('error', Error('@orioro/readme: Streams files are not supported'))
         return cb()
       } else if (file.isBuffer()) {
-        const rendered = renderString(
+        const rendered = env.renderString(
           `${macros}${file.contents.toString('utf8')}`,
           context
         )
@@ -27,7 +32,7 @@ export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => (
       cb()
     }
   })
-)
+}
 
 /**
  * Generates the readme.md file

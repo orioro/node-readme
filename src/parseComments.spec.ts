@@ -12,6 +12,7 @@ describe('parseComments', () => {
       cwd: FIXTURES_PATH
     })
     .then(comments => {
+      expect(comments).toMatchSnapshot()
       fs.writeFileSync(
         path.join(TMP_PATH, 'comments.json'),
         JSON.stringify(comments, null, '  '),
