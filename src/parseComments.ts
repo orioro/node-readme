@@ -44,9 +44,10 @@ const _parseComment = comment => {
  * glob patterns.
  * 
  * @name parseComments
- * @param {String[]} globs Array of glob patterns for files
+ * @param {GlobPatterns[]} globs Array of glob patterns for files
  *                         from which comments should be loaded
- * @param {{ cwd }} options Options to be forwarded to `vinylFs.src`
+ * @param {Object} options Options to be forwarded to `vinylFs.src`
+ * @param {string} options.cwd
  * @return {Promise->Comment[]} List of comments
  */
 export const parseComments = (

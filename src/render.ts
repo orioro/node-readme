@@ -60,7 +60,7 @@ export const render = ({
             dot: true,
             ...options
           })
-          .pipe(vinylReadmeRenderStream({ comments }))
+          .pipe(vinylReadmeRenderStream({ files: comments }))
           .pipe(rename(path => ({
             ...path,
             basename: path.basename.replace(/^\./, ''),
