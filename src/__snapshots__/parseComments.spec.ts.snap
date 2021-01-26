@@ -929,7 +929,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
   },
   "fixture-1/someMethod.ts": Object {
     "someMethod": Object {
-      "description": "Duis aute irure dolor in reprehenderit in voluptate velit",
+      "description": "",
       "name": "someMethod",
       "problems": Array [],
       "source": Array [
@@ -952,40 +952,6 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         },
         Object {
           "number": 3,
-          "source": " * Duis aute irure dolor in reprehenderit in voluptate velit",
-          "tokens": Object {
-            "delimiter": "*",
-            "description": "Duis aute irure dolor in reprehenderit in voluptate velit",
-            "end": "",
-            "name": "",
-            "postDelimiter": " ",
-            "postName": "",
-            "postTag": "",
-            "postType": "",
-            "start": " ",
-            "tag": "",
-            "type": "",
-          },
-        },
-        Object {
-          "number": 4,
-          "source": " * ",
-          "tokens": Object {
-            "delimiter": "*",
-            "description": "",
-            "end": "",
-            "name": "",
-            "postDelimiter": " ",
-            "postName": "",
-            "postTag": "",
-            "postType": "",
-            "start": " ",
-            "tag": "",
-            "type": "",
-          },
-        },
-        Object {
-          "number": 5,
           "source": " * @name someMethod",
           "tokens": Object {
             "delimiter": "*",
@@ -1002,7 +968,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 6,
+          "number": 4,
           "source": " *",
           "tokens": Object {
             "delimiter": "*",
@@ -1019,7 +985,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 7,
+          "number": 5,
           "source": " * @param {number} param Excepteur sint occaecat cupidatat non proident",
           "tokens": Object {
             "delimiter": "*",
@@ -1036,7 +1002,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 8,
+          "number": 6,
           "source": " * @return {number} result Lorem ipsum dolor sit amet, consectetur adipiscing",
           "tokens": Object {
             "delimiter": "*",
@@ -1053,7 +1019,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 9,
+          "number": 7,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -1079,7 +1045,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 7,
+                "number": 5,
                 "source": " * @param {number} param Excepteur sint occaecat cupidatat non proident",
                 "tokens": Object {
                   "delimiter": "*",
@@ -1108,7 +1074,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 8,
+                "number": 6,
                 "source": " * @return {number} result Lorem ipsum dolor sit amet, consectetur adipiscing",
                 "tokens": Object {
                   "delimiter": "*",
@@ -1125,7 +1091,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
                 },
               },
               Object {
-                "number": 9,
+                "number": 7,
                 "source": " */",
                 "tokens": Object {
                   "delimiter": "",

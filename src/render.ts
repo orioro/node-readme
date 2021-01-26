@@ -4,6 +4,7 @@ import rename from 'gulp-rename'
 import { Environment } from 'nunjucks'
 import { parseComments } from './parseComments'
 import { MACROS } from './macros'
+import toc from 'markdown-toc'
 
 export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
 
@@ -24,7 +25,14 @@ export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
         )
         .trim() + '\n'
 
-        file.contents = Buffer.from(rendered, 'utf8')
+        const TOC = toc(rendered, {
+          // firsth1: false
+        }).content
+
+        file.contents = Buffer.from(
+          rendered.replace(/<!--\s*TOC\s*-->/g, TOC),
+          'utf8'
+        )
 
         this.push(file)
       }

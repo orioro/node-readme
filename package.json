@@ -1,6 +1,6 @@
 {
   "name": "@orioro/readme",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -39,6 +39,7 @@
     "comment-parser": "^1.1.1",
     "gulp-rename": "^2.0.0",
     "lodash": "^4.17.20",
+    "markdown-toc": "^1.2.0",
     "nunjucks": "^3.2.2",
     "read-pkg-up": "^7.0.1",
     "readable-stream": "^3.6.0",

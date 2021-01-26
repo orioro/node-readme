@@ -6,9 +6,15 @@ exports[`render  1`] = `
 Helper utility to generate \`readme.md\` files for projects.
 Parses source code looking for JSDoc-like comments.
 
-## API
+- [readme](#readme)
+- [API](#api)
+        * [\`func1(strParam, numParam)\`](#func1strparam-numparam)
+        * [\`func2(param1, param2)\`](#func2param1-param2)
+        * [\`someMethod(param)\`](#somemethodparam)
 
-##### \`func1(strParam = '', numParam = 0)\`
+# API
+
+##### \`func1(strParam, numParam)\`
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

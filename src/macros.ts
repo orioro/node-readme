@@ -18,7 +18,7 @@ export const MACRO_METHOD_API = [
         // Skips parameters with dot in their names
         // (they are assumed to be sub-properties)
         '{% if not dotRegExp.test(param.name) %}',
-          '{{ comma() }}{{ param.name }}{% if param.default %} = {{ param.default }}{% endif %}',
+          '{{ comma() }}{{ param.name }}',
         '{% endif %}',
       '{% endfor %}',
     ')`\n',
