@@ -23,7 +23,7 @@ export const MACRO_METHOD_API = [
       '{% endfor %}',
     ')`\n',
     // description
-    '\n{{ method.description }}\n',
+    '{% if method.description %}\n{{ method.description }}\n{% endif %}',
     // Parameters
     '\n{% for param in method.tags.param %}',
       '- `{{ param.name }}`',

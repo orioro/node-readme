@@ -1,8 +1,6 @@
 import { anotherModule } from 'another-module'
 
 /**
- * Duis aute irure dolor in reprehenderit in voluptate velit
- * 
  * @name someMethod
  *
  * @param {number} param Excepteur sint occaecat cupidatat non proident

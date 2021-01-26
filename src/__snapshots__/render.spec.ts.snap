@@ -44,8 +44,6 @@ Aliquam at metus molestie, luctus arcu id, ornare ligula.
 
 ##### \`someMethod(param)\`
 
-Duis aute irure dolor in reprehenderit in voluptate velit
-
 - \`param\` {number} Excepteur sint occaecat cupidatat non proident
 - Returns: \`result\` {number} Lorem ipsum dolor sit amet, consectetur adipiscing
 "
