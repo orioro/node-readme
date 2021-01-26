@@ -8,7 +8,7 @@ Parses source code looking for JSDoc-like comments.
 
 ## API
 
-##### \`func1(strParam, numParam)\`
+##### \`func1(strParam = '', numParam = 0)\`
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -36,11 +36,11 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
 Aliquam at metus molestie, luctus arcu id, ornare ligula.
 
-- \`param1\` {Object} 
+- \`param1\` {Object}
 - \`param1.opt1\` {string} Some option
 - \`param1.opt2\` {string} Some other option
-- \`param2\` {number} 
-- Returns: \`result\` {CustomType} 
+- \`param2\` {number}
+- Returns: \`result\` {CustomType}
 
 ##### \`someMethod(param)\`
 

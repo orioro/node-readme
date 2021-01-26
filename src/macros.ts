@@ -18,7 +18,7 @@ export const MACRO_METHOD_API = [
         // Skips parameters with dot in their names
         // (they are assumed to be sub-properties)
         '{% if not dotRegExp.test(param.name) %}',
-          '{{ comma() }}{{ param.name }}',
+          '{{ comma() }}{{ param.name }}{% if param.default %} = {{ param.default }}{% endif %}',
         '{% endif %}',
       '{% endfor %}',
     ')`\n',
@@ -26,12 +26,20 @@ export const MACRO_METHOD_API = [
     '\n{{ method.description }}\n',
     // Parameters
     '\n{% for param in method.tags.param %}',
-      '- `{{ param.name }}` {{ paramType(param.type) }} {% if param.description %}{{ param.description }}{% endif %}{% if param.default %} Default: `{{ param.default }}`{% endif %}\n',
+      '- `{{ param.name }}`',
+      ' {{ paramType(param.type) }}',
+      '{% if param.description %} {{ param.description }}{% endif %}',
+      '{% if param.default %} Default: `{{ param.default }}`{% endif %}',
+      '\n',
     '{% endfor %}',
     // Return
     '{% if method.tags.return %}',
       '{% set return = method.tags.return["0"] %}',
-      '- Returns: `{{ return.name }}` {{ paramType(return.type) }} {{ return.description }}\n',
+      '- Returns:',
+      '{% if return.name %} `{{ return.name }}`{% endif %}',
+      ' {{ paramType(return.type) }}',
+      '{% if return.description %} {{ return.description }}{% endif %}',
+      '\n',
     '{% endif %}',
   '{% endmacro %}'
 ].join('')

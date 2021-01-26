@@ -2,5 +2,6 @@
 node_modules
 *.bundle.js
 dist
+coverage
 tmp
 test/fixture-1/readme.md

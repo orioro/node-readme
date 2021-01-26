@@ -38,8 +38,12 @@ export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
  * Generates the readme.md file
  *
  * @name render
- * @param {{ templates: {GlobPattern[]}, comments: {GlobPattern[]}, dest: string }} config
- * @param {{ cwd: {String} }} options
+ * @param {Object} config
+ * @param {GlobPattern[]} config.templates
+ * @param {GlobPattern[]} config.comments
+ * @param {string} [config.dest='./']
+ * @param {Object} options
+ * @param {string} options.cwd
  * @return {Promise->void}
  */
 export const render = ({
