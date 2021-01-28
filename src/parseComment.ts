@@ -2,7 +2,11 @@ import { Transform } from 'readable-stream'
 import { parse } from 'comment-parser/lib'
 import vinylFs from 'vinyl-fs'
 import { groupBy } from 'lodash'
-import { cascadeExec, cascadeFilter, test, Alternative, ExecutableAlternative } from '@orioro/cascade'
+import {
+  cascadeFilter,
+  test,
+  Alternative
+} from '@orioro/cascade'
 
 type PlainObject = { [key:string]: any }
 type Parser = (PlainObject) => PlainObject
@@ -151,11 +155,11 @@ const PARSERS:Alternative[] = [
   ],
   
   // // Trim description
-  // [({ description }) => ({
-  //   description: typeof description === 'string'
-  //     ? description.trim()
-  //     : undefined
-  // })]
+  [({ description }) => ({
+    description: typeof description === 'string'
+      ? description.trim()
+      : undefined
+  })]
 ]
 
 export const parseComment = comment => {
@@ -204,22 +208,31 @@ export const vinylCommentStream = () => {
 export const parseCommentsFromFs = (
   globs,
   options?
-) => (
+):Promise<PlainObject[]> => (
   new Promise((resolve, reject) => {
-    const comments = {}
+    let comments:PlainObject[] = []
+    // const comments = {}
     const commentsStream = vinylFs
       .src(globs, options)
       .pipe(vinylCommentStream())
 
     commentsStream.on('data', file => {
-      comments[file.relative] = file.comments.reduce((acc, comment, index) => {
-        const key = comment.name !== null ? comment.name : index + ''
+      comments = [
+        ...comments,
+        ...file.comments.map(comment => ({
+          ...comment,
+          file: file.relative,
+        }))
+      ]
 
-        return {
-          ...acc,
-          [key]: comment
-        }
-      }, {})
+      // comments[file.relative] = file.comments.reduce((acc, comment, index) => {
+      //   const key = comment.name !== null ? comment.name : index + ''
+
+      //   return {
+      //     ...acc,
+      //     [key]: comment
+      //   }
+      // }, {})
     })
 
     commentsStream.on('end', () => resolve(comments))

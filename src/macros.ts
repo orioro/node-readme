@@ -9,23 +9,23 @@ export const MACRO_PARAM_TYPE = [
 export const MACRO_METHOD_API = [
   '{% macro methodAPI(method) %}',
     // Utility variables
-    '{% set dotRegExp = r/\\./ %}',
+    // '{% set dotRegExp = r/\\./ %}',
     '{% set comma = joiner(", ") %}',
 
     // Heading
     '\n##### `{{ method.name }}(',
-      '{% for param in method.tags.param %}',
+      '{% for param in method.params %}',
         // Skips parameters with dot in their names
         // (they are assumed to be sub-properties)
-        '{% if not dotRegExp.test(param.name) %}',
+        // '{% if not dotRegExp.test(param.name) %}',
           '{{ comma() }}{{ param.name }}',
-        '{% endif %}',
+        // '{% endif %}',
       '{% endfor %}',
     ')`\n',
     // description
     '{% if method.description %}\n{{ method.description }}\n{% endif %}',
     // Parameters
-    '\n{% for param in method.tags.param %}',
+    '\n{% for param in method.params %}',
       '- `{{ param.name }}`',
       ' {{ paramType(param.type) }}',
       '{% if param.description %} {{ param.description }}{% endif %}',
@@ -33,12 +33,11 @@ export const MACRO_METHOD_API = [
       '\n',
     '{% endfor %}',
     // Return
-    '{% if method.tags.return %}',
-      '{% set return = method.tags.return["0"] %}',
+    '{% if method.returns %}',
       '- Returns:',
-      '{% if return.name %} `{{ return.name }}`{% endif %}',
-      ' {{ paramType(return.type) }}',
-      '{% if return.description %} {{ return.description }}{% endif %}',
+      '{% if method.returns.name %} `{{ method.returns.name }}`{% endif %}',
+      ' {{ paramType(method.returns.type) }}',
+      '{% if method.returns.description %} {{ method.returns.description }}{% endif %}',
       '\n',
     '{% endif %}',
   '{% endmacro %}'

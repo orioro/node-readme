@@ -21,8 +21,8 @@ import { someModule } from 'some-module'
  *                          sit voluptatem accusantium doloremque laudantium.
  * @param {number} [numParam=0] Nemo enim ipsam voluptatem, quia voluptas
  *                          sit, aspernatur aut odit aut fugit.
- * @return {boolean} result Nam libero tempore, cum soluta nobis est
- *                          eligendi optio.
+ * @returns {boolean} result Nam libero tempore, cum soluta nobis est
+ *                           eligendi optio.
  */
 const func1 = (
   strParam,
@@ -37,7 +37,7 @@ const func1 = (
  * @param {string} param1.opt1 Some option
  * @param {string} param1.opt2 Some other option
  * @param {number} param2
- * @return {CustomType} result
+ * @returns {CustomType} result
  */
 const func2 = (
   param1,

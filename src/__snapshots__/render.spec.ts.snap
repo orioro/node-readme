@@ -36,15 +36,13 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 - \`numParam\` {number} Nemo enim ipsam voluptatem, quia voluptas
                          sit, aspernatur aut odit aut fugit. Default: \`0\`
 - Returns: \`result\` {boolean} Nam libero tempore, cum soluta nobis est
-                         eligendi optio.
+                          eligendi optio.
 
 ##### \`func2(param1, param2)\`
 
 Aliquam at metus molestie, luctus arcu id, ornare ligula.
 
 - \`param1\` {Object}
-- \`param1.opt1\` {string} Some option
-- \`param1.opt2\` {string} Some other option
 - \`param2\` {number}
 - Returns: \`result\` {CustomType}
 
