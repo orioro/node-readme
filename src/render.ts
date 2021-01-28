@@ -1,17 +1,11 @@
 import { Transform } from 'readable-stream'
 import vinylFs from 'vinyl-fs'
 import rename from 'gulp-rename'
-import { Environment } from 'nunjucks'
-import { parseComments } from './parseComments'
-import { MACROS } from './macros'
+import { parseCommentsFromFs } from './parseComment'
 import toc from 'markdown-toc'
+import { templateRender } from './template'
 
-export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
-
-  const env = new Environment(null, {
-    autoescape: false
-  })
-
+export const vinylReadmeRenderStream = (context) => {
   return new Transform({
     objectMode: true,
     transform(file, enc, cb) {
@@ -19,11 +13,10 @@ export const vinylReadmeRenderStream = (context, { macros = MACROS } = {}) => {
         this.emit('error', Error('@orioro/readme: Streams files are not supported'))
         return cb()
       } else if (file.isBuffer()) {
-        const rendered = env.renderString(
-          `${macros}${file.contents.toString('utf8')}`,
+        const rendered = templateRender(
+          file.contents.toString('utf8'),
           context
-        )
-        .trim() + '\n'
+        ) + '\n'
 
         const TOC = toc(rendered, {
           // firsth1: false
@@ -59,7 +52,7 @@ export const render = ({
   comments,
   dest = './'
 }, options = {}) => (
-  parseComments(comments, options)
+  parseCommentsFromFs(comments, options)
     .then(comments => {
 
       return new Promise((resolve, reject) => {
