@@ -2,12 +2,12 @@ import * as path from 'path'
 import * as chokidar from 'chokidar'
 const readPkgUp = require('read-pkg-up')
 // import readPkgUp from 'read-pkg-up'
-import { render } from '../render'
+import { renderReadmeFromFs } from '../renderReadmeFromFs'
 
-const renderWithTimer = (config, options) => {
+const renderWithTimer = (config) => {
   const start = Date.now()
 
-  return render(config, options).then(() => {
+  return renderReadmeFromFs(config).then(() => {
     const end = Date.now()
 
     console.log(`Successfully rendered readme docs, ${end - start}ms`)
@@ -15,12 +15,14 @@ const renderWithTimer = (config, options) => {
 }
 
 const DEFAULT_README_CONF = {
-    templates: [
+    templatesSrc: [
       '.readme.md',
       'src/**/*.md'
     ],
-    comments: [
+    commentsSrc: [
       'src/**/*',
+      '!src/**/*.snap',
+      '!src/**/*.spec.*',
       '!**/*.md'
     ]
   }
@@ -33,10 +35,11 @@ const cmdRenderHandler = argv => (
 
       const config = {
         ...DEFAULT_README_CONF,
-        ...readme
+        ...readme,
+        cwd
       }
 
-      return renderWithTimer(config, { cwd }).then(() => {
+      return renderWithTimer(config).then(() => {
 
         if (argv.watch) {
           const watcher = chokidar.watch([
@@ -46,7 +49,7 @@ const cmdRenderHandler = argv => (
 
           const handleChange = path => {
             console.log(`readme-related files have changed, will re-render (${path})`)
-            renderWithTimer(config, { cwd })
+            renderWithTimer(config)
           }
 
           watcher.on('change', handleChange)

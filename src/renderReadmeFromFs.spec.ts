@@ -1,18 +1,20 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import {
-  render
-} from './render'
+import { renderReadmeFromFs } from './renderReadmeFromFs'
 
 const FIXTURES_PATH = path.join(__dirname, '../test')
 const TMP_PATH = path.join(__dirname, '../tmp')
 
-describe('render', () => {
+describe('renderReadmeFromFs', () => {
   test('', () => {
-    return render({
-      templates: ['**/.*.md'],
-      comments: ['**/*.ts']
-    }, {
+    return renderReadmeFromFs({
+      templatesSrc: ['**/.*.md'],
+      commentsSrc: [
+        '**/*.js',
+        '**/*.jsx',
+        '**/*.ts',
+        '**/*.tsx',
+      ],
       cwd: FIXTURES_PATH
     })
     .then(() => {

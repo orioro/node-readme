@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render  1`] = `
+exports[`renderReadmeFromFs  1`] = `
 "# readme
 
 Helper utility to generate \`readme.md\` files for projects.

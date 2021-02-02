@@ -1,2 +1,4 @@
-export * from './parseComments'
-export * from './render'
+export * from './parseComment'
+export * from './renderReadmeFromFs'
+export * from './renderComment'
+export * from './template'
