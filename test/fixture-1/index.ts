@@ -1,6 +1,15 @@
 import { someModule } from 'some-module'
 
 /**
+ * Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+ * nisi ut aliquip ex ea commodo consequat.
+ * 
+ * @typedef {Object} CustomType
+ * @property {String} name
+ * @property {Boolean} bool
+ */
+
+/**
  * Lorem ipsum dolor sit amet, consectetur adipiscing elit,
  * sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
  *
@@ -31,6 +40,7 @@ const func1 = (
 
 /**
  * Aliquam at metus molestie, luctus arcu id, ornare ligula.
+ * View `func1`
  *
  * @function func2
  * @param {Object} param1

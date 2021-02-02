@@ -185,6 +185,7 @@ export const vinylCommentStream = () => {
           spacing: 'preserve'
         })
         .map(parseComment)
+        .filter(comment => typeof comment.name === 'string')
 
         this.push(file)
       }
@@ -198,7 +199,7 @@ export const vinylCommentStream = () => {
  * Parses comments loaded from files matching the given
  * glob patterns.
  * 
- * @name parseCommentsFromFs
+ * @function parseCommentsFromFs
  * @param {GlobPatterns[]} globs Array of glob patterns for files
  *                         from which comments should be loaded
  * @param {Object} options Options to be forwarded to `vinylFs.src`
@@ -211,7 +212,6 @@ export const parseCommentsFromFs = (
 ):Promise<PlainObject[]> => (
   new Promise((resolve, reject) => {
     let comments:PlainObject[] = []
-    // const comments = {}
     const commentsStream = vinylFs
       .src(globs, options)
       .pipe(vinylCommentStream())
@@ -224,15 +224,6 @@ export const parseCommentsFromFs = (
           file: file.relative,
         }))
       ]
-
-      // comments[file.relative] = file.comments.reduce((acc, comment, index) => {
-      //   const key = comment.name !== null ? comment.name : index + ''
-
-      //   return {
-      //     ...acc,
-      //     [key]: comment
-      //   }
-      // }, {})
     })
 
     commentsStream.on('end', () => resolve(comments))

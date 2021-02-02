@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@orioro/cascade": "^3.0.0-beta.2",
-    "@sindresorhus/slugify": "^1.1.0",
+    "@orioro/expression": "^1.0.0-alpha.4",
     "chokidar": "^3.5.1",
     "comment-parser": "^1.1.1",
     "gulp-rename": "^2.0.0",

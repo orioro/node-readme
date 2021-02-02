@@ -3,6 +3,91 @@
 exports[`parseCommentsFromFs  1`] = `
 Array [
   Object {
+    "commentType": "typedef",
+    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat.",
+    "examples": Array [],
+    "file": "fixture-1/index.ts",
+    "name": "CustomType",
+    "params": Array [],
+    "properties": Array [
+      Object {
+        "description": "",
+        "name": "name",
+        "optional": false,
+        "problems": Array [],
+        "properties": Array [],
+        "source": Array [
+          Object {
+            "number": 7,
+            "source": " * @property {String} name",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "",
+              "end": "",
+              "name": "name",
+              "postDelimiter": " ",
+              "postName": "",
+              "postTag": " ",
+              "postType": " ",
+              "start": " ",
+              "tag": "@property",
+              "type": "{String}",
+            },
+          },
+        ],
+        "tag": "property",
+        "type": "String",
+      },
+      Object {
+        "description": "",
+        "name": "bool",
+        "optional": false,
+        "problems": Array [],
+        "properties": Array [],
+        "source": Array [
+          Object {
+            "number": 8,
+            "source": " * @property {Boolean} bool",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "",
+              "end": "",
+              "name": "bool",
+              "postDelimiter": " ",
+              "postName": "",
+              "postTag": " ",
+              "postType": " ",
+              "start": " ",
+              "tag": "@property",
+              "type": "{Boolean}",
+            },
+          },
+          Object {
+            "number": 9,
+            "source": " */",
+            "tokens": Object {
+              "delimiter": "",
+              "description": "",
+              "end": "*/",
+              "name": "",
+              "postDelimiter": "",
+              "postName": "",
+              "postTag": "",
+              "postType": "",
+              "start": " ",
+              "tag": "",
+              "type": "",
+            },
+          },
+        ],
+        "tag": "property",
+        "type": "Boolean",
+      },
+    ],
+    "todo": Array [],
+  },
+  Object {
     "commentType": "function",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -32,7 +117,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 19,
+            "number": 28,
             "source": " * @param {string} [strParam=''] Sed ut perspiciatis, unde omnis iste natus error",
             "tokens": Object {
               "delimiter": "*",
@@ -49,7 +134,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             },
           },
           Object {
-            "number": 20,
+            "number": 29,
             "source": " *                          sit voluptatem accusantium doloremque laudantium.",
             "tokens": Object {
               "delimiter": "*",
@@ -79,7 +164,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 21,
+            "number": 30,
             "source": " * @param {number} [numParam=0] Nemo enim ipsam voluptatem, quia voluptas",
             "tokens": Object {
               "delimiter": "*",
@@ -96,7 +181,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             },
           },
           Object {
-            "number": 22,
+            "number": 31,
             "source": " *                          sit, aspernatur aut odit aut fugit.",
             "tokens": Object {
               "delimiter": "*",
@@ -126,7 +211,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
       "problems": Array [],
       "source": Array [
         Object {
-          "number": 23,
+          "number": 32,
           "source": " * @returns {boolean} result Nam libero tempore, cum soluta nobis est",
           "tokens": Object {
             "delimiter": "*",
@@ -143,7 +228,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 24,
+          "number": 33,
           "source": " *                           eligendi optio.",
           "tokens": Object {
             "delimiter": "*",
@@ -160,7 +245,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 25,
+          "number": 34,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -184,7 +269,8 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
   },
   Object {
     "commentType": "function",
-    "description": "Aliquam at metus molestie, luctus arcu id, ornare ligula.",
+    "description": "Aliquam at metus molestie, luctus arcu id, ornare ligula.
+View \`func1\`",
     "examples": Array [],
     "file": "fixture-1/index.ts",
     "name": "func2",
@@ -202,7 +288,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 36,
+                "number": 46,
                 "source": " * @param {string} param1.opt1 Some option",
                 "tokens": Object {
                   "delimiter": "*",
@@ -229,7 +315,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 37,
+                "number": 47,
                 "source": " * @param {string} param1.opt2 Some other option",
                 "tokens": Object {
                   "delimiter": "*",
@@ -252,7 +338,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         ],
         "source": Array [
           Object {
-            "number": 35,
+            "number": 45,
             "source": " * @param {Object} param1",
             "tokens": Object {
               "delimiter": "*",
@@ -280,7 +366,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 38,
+            "number": 48,
             "source": " * @param {number} param2",
             "tokens": Object {
               "delimiter": "*",
@@ -309,7 +395,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
       "problems": Array [],
       "source": Array [
         Object {
-          "number": 39,
+          "number": 49,
           "source": " * @returns {CustomType} result",
           "tokens": Object {
             "delimiter": "*",
@@ -326,7 +412,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 40,
+          "number": 50,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -349,6 +435,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
     "todo": Array [],
   },
   Object {
+    "commentType": "function",
     "description": "",
     "examples": Array [],
     "file": "fixture-1/someMethod.ts",

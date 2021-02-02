@@ -1,7 +1,7 @@
 import { anotherModule } from 'another-module'
 
 /**
- * @name someMethod
+ * @function someMethod
  *
  * @param {number} param Excepteur sint occaecat cupidatat non proident
  * @returns {number} result Lorem ipsum dolor sit amet, consectetur adipiscing

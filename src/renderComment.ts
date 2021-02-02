@@ -1,71 +1,61 @@
-export const renderDefault = (context, comment) => {
+const stringFromLines = (
+  lines:(string | false)[]
+):string => (
+  lines
+    .filter(str => typeof str === 'string')
+    .join('\n')
+)
 
-}
+export const renderDefaultComment = (comment, level = 5) => stringFromLines([
+  `${'#'.repeat(level)} ${ renderCommentTitle(comment) }`,
+  '',
+  comment.description
+    ? `${comment.description}\n`
+    : false,
+  comment.properties
+    ? renderPropList(comment.properties)
+    : false,
+])
 
-export const renderFunction = (context, func) => {
-
-}
-
-export const renderCommentTitle = (context, comment) => {
+export const renderCommentTitle = (comment) => {
   if (comment.commentType === 'function') {
-    return `${ comment.name }(${ comment.params.map(param => param.name).join(', ') })`
+    return `\`${ comment.name }(${ comment.params.map(prop => prop.name).join(', ') })\``
   } else {
-    return `\`${comment.name}\``
+    return `\`${ comment.name }\``
   }
 }
 
-export const renderCommentReference = (context, {
-  commentType,
-  name
-}) => {
-  const comment = context.comments.find(comment => (
-    comment.commentType === commentType &&
-    comment.name === name
-  ))
+const renderProp = (prop, level = 0) => stringFromLines([
+  `${' '.repeat(level * 2)}- \`${prop.name}\` {\`${prop.type}\`}`,
+  ...(prop.properties || []).map(property => renderProp(property, level + 1))
+])
 
-  return comment
-    ? `\`[${name}](${renderCommentTitle(context, comment)})]\``
-    : `\`${name}\``
+const renderPropList = (props) => (
+  stringFromLines(props.map(prop => renderProp(prop, 0)))
+)
+
+export const renderFunctionComment = (comment, level = 5) => stringFromLines([
+  `${'#'.repeat(level)} ${ renderCommentTitle(comment) }`,
+  '',
+  comment.description
+    ? `${comment.description}\n`
+    : false,
+  comment.params
+    ? renderPropList(comment.params)
+    : false,
+  comment.returns
+    ? `- Returns: ${comment.returns.name ? `\`${comment.returns.name}\` ` : ''}{\`${comment.returns.type}\`} ${comment.returns.description || ''}`
+    : false,
+])
+
+export const renderComment = (comment, level = 5) => {
+  switch (comment.commentType) {
+    case 'function':
+    case 'func':
+    case 'method':
+    case 'callback':
+      return renderFunctionComment(comment, level)
+    default:
+      return renderDefaultComment(comment, level)
+  }
 }
-
-export const renderParam = (context, param, level = 0) => {
-  const type = renderCommentReference(context, {
-    commentType: 'typedef',
-    name: param.type
-  })
-
-  return [
-    `${' '.repeat(level * 2)}- \`${param.name}\` {${type}}`,
-    ...(param.properties || []).map(property => renderParam(context, property, level + 1))
-  ].join('\n')
-}
-
-export const renderParamList = (context, params) => {
-  return params.map(param => renderParam(context, param, 0)).join('\n')
-}
-
-
-// const renderParam = param => {
-//   return `- \`${param.name}\` {[${param.type}](#${param.type})}`
-// }
-
-// const renderParamList = (params, level = 0) => {
-//   return params.reduce((acc, param) => {
-//     return [
-//       ...acc,
-//       renderParam(param),
-//       param
-//     ]
-
-//   }, [])
-// }
-
-// const FUNC_RENDERER = [
-//   comment => comment.commentType === 'function',
-//   comment => ([
-//     `###### ${ comment.name }(${ comment.params.map(param => param.name).join(', ') })\n`,
-//     `${ comment.description ? `\n${comment.description}\n` : '' }`,
-//     `${ comment.params.map(param => renderParam(param)).join('\n') }`,
-    
-//   ]).join('')
-// ]
