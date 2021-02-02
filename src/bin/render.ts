@@ -43,8 +43,8 @@ const cmdRenderHandler = argv => (
 
         if (argv.watch) {
           const watcher = chokidar.watch([
-            ...config.templates,
-            ...config.comments
+            ...config.templatesSrc,
+            ...config.commentsSrc
           ].map(p => path.join(cwd, p)))
 
           const handleChange = path => {

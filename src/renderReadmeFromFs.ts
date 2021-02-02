@@ -123,6 +123,7 @@ const renderTodo = (targetPath, todo) => {
 
         return `- ${name} | ${description} (${source})`
       })
+      .sort()
       .join('\n') + '\n'
   )
 }
