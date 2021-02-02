@@ -7,7 +7,7 @@ Array [
     "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 nisi ut aliquip ex ea commodo consequat.",
     "examples": Array [],
-    "file": "fixture-1/index.ts",
+    "file": "fixture-1/src/index.ts",
     "name": "CustomType",
     "params": Array [],
     "properties": Array [
@@ -19,7 +19,7 @@ nisi ut aliquip ex ea commodo consequat.",
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 7,
+            "number": 9,
             "source": " * @property {String} name",
             "tokens": Object {
               "delimiter": "*",
@@ -47,7 +47,7 @@ nisi ut aliquip ex ea commodo consequat.",
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 8,
+            "number": 10,
             "source": " * @property {Boolean} bool",
             "tokens": Object {
               "delimiter": "*",
@@ -64,7 +64,7 @@ nisi ut aliquip ex ea commodo consequat.",
             },
           },
           Object {
-            "number": 9,
+            "number": 11,
             "source": " */",
             "tokens": Object {
               "delimiter": "",
@@ -85,7 +85,53 @@ nisi ut aliquip ex ea commodo consequat.",
         "type": "Boolean",
       },
     ],
-    "todo": Array [],
+    "todo": Array [
+      Object {
+        "description": "Some issue
+",
+        "name": "#3",
+        "optional": false,
+        "problems": Array [],
+        "source": Array [
+          Object {
+            "number": 6,
+            "source": " * @todo #3 Some issue",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "Some issue",
+              "end": "",
+              "name": "#3",
+              "postDelimiter": " ",
+              "postName": " ",
+              "postTag": " ",
+              "postType": "",
+              "start": " ",
+              "tag": "@todo",
+              "type": "",
+            },
+          },
+          Object {
+            "number": 7,
+            "source": " * ",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "",
+              "end": "",
+              "name": "",
+              "postDelimiter": " ",
+              "postName": "",
+              "postTag": "",
+              "postType": "",
+              "start": " ",
+              "tag": "",
+              "type": "",
+            },
+          },
+        ],
+        "tag": "todo",
+        "type": "",
+      },
+    ],
   },
   Object {
     "commentType": "function",
@@ -104,7 +150,7 @@ const result = func1('some string', 10)
 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "examples": Array [],
-    "file": "fixture-1/index.ts",
+    "file": "fixture-1/src/index.ts",
     "name": "func1",
     "params": Array [
       Object {
@@ -117,7 +163,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 28,
+            "number": 30,
             "source": " * @param {string} [strParam=''] Sed ut perspiciatis, unde omnis iste natus error",
             "tokens": Object {
               "delimiter": "*",
@@ -134,7 +180,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             },
           },
           Object {
-            "number": 29,
+            "number": 31,
             "source": " *                          sit voluptatem accusantium doloremque laudantium.",
             "tokens": Object {
               "delimiter": "*",
@@ -164,7 +210,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 30,
+            "number": 32,
             "source": " * @param {number} [numParam=0] Nemo enim ipsam voluptatem, quia voluptas",
             "tokens": Object {
               "delimiter": "*",
@@ -181,7 +227,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             },
           },
           Object {
-            "number": 31,
+            "number": 33,
             "source": " *                          sit, aspernatur aut odit aut fugit.",
             "tokens": Object {
               "delimiter": "*",
@@ -211,7 +257,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
       "problems": Array [],
       "source": Array [
         Object {
-          "number": 32,
+          "number": 34,
           "source": " * @returns {boolean} result Nam libero tempore, cum soluta nobis est",
           "tokens": Object {
             "delimiter": "*",
@@ -228,7 +274,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 33,
+          "number": 35,
           "source": " *                           eligendi optio.",
           "tokens": Object {
             "delimiter": "*",
@@ -245,7 +291,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
           },
         },
         Object {
-          "number": 34,
+          "number": 36,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -272,7 +318,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
     "description": "Aliquam at metus molestie, luctus arcu id, ornare ligula.
 View \`func1\`",
     "examples": Array [],
-    "file": "fixture-1/index.ts",
+    "file": "fixture-1/src/index.ts",
     "name": "func2",
     "params": Array [
       Object {
@@ -288,7 +334,7 @@ View \`func1\`",
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 46,
+                "number": 48,
                 "source": " * @param {string} param1.opt1 Some option",
                 "tokens": Object {
                   "delimiter": "*",
@@ -315,7 +361,7 @@ View \`func1\`",
             "problems": Array [],
             "source": Array [
               Object {
-                "number": 47,
+                "number": 49,
                 "source": " * @param {string} param1.opt2 Some other option",
                 "tokens": Object {
                   "delimiter": "*",
@@ -338,7 +384,7 @@ View \`func1\`",
         ],
         "source": Array [
           Object {
-            "number": 45,
+            "number": 47,
             "source": " * @param {Object} param1",
             "tokens": Object {
               "delimiter": "*",
@@ -366,7 +412,7 @@ View \`func1\`",
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 48,
+            "number": 50,
             "source": " * @param {number} param2",
             "tokens": Object {
               "delimiter": "*",
@@ -395,7 +441,7 @@ View \`func1\`",
       "problems": Array [],
       "source": Array [
         Object {
-          "number": 49,
+          "number": 51,
           "source": " * @returns {CustomType} result",
           "tokens": Object {
             "delimiter": "*",
@@ -412,7 +458,7 @@ View \`func1\`",
           },
         },
         Object {
-          "number": 50,
+          "number": 52,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -438,7 +484,7 @@ View \`func1\`",
     "commentType": "function",
     "description": "",
     "examples": Array [],
-    "file": "fixture-1/someMethod.ts",
+    "file": "fixture-1/src/someMethod.ts",
     "name": "someMethod",
     "params": Array [
       Object {
@@ -449,7 +495,7 @@ View \`func1\`",
         "properties": Array [],
         "source": Array [
           Object {
-            "number": 5,
+            "number": 8,
             "source": " * @param {number} param Excepteur sint occaecat cupidatat non proident",
             "tokens": Object {
               "delimiter": "*",
@@ -478,7 +524,7 @@ View \`func1\`",
       "problems": Array [],
       "source": Array [
         Object {
-          "number": 6,
+          "number": 9,
           "source": " * @returns {number} result Lorem ipsum dolor sit amet, consectetur adipiscing",
           "tokens": Object {
             "delimiter": "*",
@@ -495,7 +541,7 @@ View \`func1\`",
           },
         },
         Object {
-          "number": 7,
+          "number": 10,
           "source": " */",
           "tokens": Object {
             "delimiter": "",
@@ -515,7 +561,80 @@ View \`func1\`",
       "tag": "returns",
       "type": "number",
     },
-    "todo": Array [],
+    "todo": Array [
+      Object {
+        "description": "Something to be done",
+        "name": "-",
+        "optional": false,
+        "problems": Array [],
+        "source": Array [
+          Object {
+            "number": 5,
+            "source": " * @todo - Something to be done",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "Something to be done",
+              "end": "",
+              "name": "-",
+              "postDelimiter": " ",
+              "postName": " ",
+              "postTag": " ",
+              "postType": "",
+              "start": " ",
+              "tag": "@todo",
+              "type": "",
+            },
+          },
+        ],
+        "tag": "todo",
+        "type": "",
+      },
+      Object {
+        "description": "Something to be done that already has an issue number
+",
+        "name": "#45:OK",
+        "optional": false,
+        "problems": Array [],
+        "source": Array [
+          Object {
+            "number": 6,
+            "source": " * @todo #45:OK Something to be done that already has an issue number",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "Something to be done that already has an issue number",
+              "end": "",
+              "name": "#45:OK",
+              "postDelimiter": " ",
+              "postName": " ",
+              "postTag": " ",
+              "postType": "",
+              "start": " ",
+              "tag": "@todo",
+              "type": "",
+            },
+          },
+          Object {
+            "number": 7,
+            "source": " *",
+            "tokens": Object {
+              "delimiter": "*",
+              "description": "",
+              "end": "",
+              "name": "",
+              "postDelimiter": "",
+              "postName": "",
+              "postTag": "",
+              "postType": "",
+              "start": " ",
+              "tag": "",
+              "type": "",
+            },
+          },
+        ],
+        "tag": "todo",
+        "type": "",
+      },
+    ],
   },
 ]
 `;

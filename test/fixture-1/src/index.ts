@@ -3,6 +3,8 @@ import { someModule } from 'some-module'
 /**
  * Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
  * nisi ut aliquip ex ea commodo consequat.
+ *
+ * @todo #3 Some issue
  * 
  * @typedef {Object} CustomType
  * @property {String} name

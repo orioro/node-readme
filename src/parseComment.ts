@@ -1,3 +1,4 @@
+import * as path from 'path'
 import { Transform } from 'readable-stream'
 import { parse } from 'comment-parser/lib'
 import vinylFs from 'vinyl-fs'
@@ -208,7 +209,7 @@ export const vinylCommentStream = () => {
  */
 export const parseCommentsFromFs = (
   globs,
-  options?
+  options
 ):Promise<PlainObject[]> => (
   new Promise((resolve, reject) => {
     let comments:PlainObject[] = []
@@ -221,7 +222,7 @@ export const parseCommentsFromFs = (
         ...comments,
         ...file.comments.map(comment => ({
           ...comment,
-          file: file.relative,
+          file: path.relative(options.cwd, file.path),
         }))
       ]
     })

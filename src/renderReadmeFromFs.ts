@@ -1,3 +1,6 @@
+import * as path from 'path'
+import { writeFile } from 'fs'
+import { promisify } from 'util'
 import { Transform } from 'readable-stream'
 import vinylFs from 'vinyl-fs'
 import rename from 'gulp-rename'
@@ -6,6 +9,8 @@ import toc from 'markdown-toc'
 import { uniq } from 'lodash'
 import { templateRender } from './template'
 import { renderCommentTitle } from './renderComment'
+
+const writeFileAsync = promisify(writeFile)
 
 const REFERRABLE_COMMENT_TYPES = [
   'function', 'func', 'method', 'callback',
@@ -52,9 +57,18 @@ export const vinylReadmeRenderStream = (context) => {
 
 const readMeRenderContext = comments => {
   const files = uniq(comments.map(comment => comment.file))
+  const todo = comments.reduce((acc, comment) => {
+    return Array.isArray(comment.todo) && comment.todo.length > 0
+      ? [...acc, ...comment.todo.map(todo => ({
+          ...todo,
+          source: comment.file
+        }))]
+      : acc
+  }, [])
 
   return {
     comments,
+    todo,
     files: files.reduce((acc, file) => {
       const _comments = comments
         .filter(comment => comment.file === file)
@@ -78,6 +92,27 @@ const readMeRenderContext = comments => {
   }
 }
 
+const renderTodo = (targetPath, todo) => {
+  const longestNameCharCount = todo.reduce((acc, todo) => (
+    todo.name.length > acc
+      ? todo.name.length
+      : acc
+  ), 0)
+
+  return writeFileAsync(
+    targetPath,
+    todo
+      .map(todo => {
+        const name = (todo.name || '').trim().padEnd(longestNameCharCount, ' ')
+        const description = (todo.description || '').trim()
+        const source = todo.source.trim()
+
+        return `- ${name} | ${description} (${source})`
+      })
+      .join('\n') + '\n'
+  )
+}
+
 /**
  * Generates the readme.md file
  *
@@ -93,20 +128,21 @@ export const renderReadmeFromFs = ({
   templatesSrc,
   commentsSrc,
   dest = './',
-  todo = false,
+  todo = true,
   cwd
 }) => (
   parseCommentsFromFs(commentsSrc, { cwd })
   .then(comments => {
-    return new Promise((resolve, reject) => {
+
+    const context = readMeRenderContext(comments)
+
+    const readmePromise = new Promise((resolve, reject) => {
       const stream = vinylFs
         .src(templatesSrc, {
           cwd,
           dot: true
         })
-        .pipe(vinylReadmeRenderStream(
-          readMeRenderContext(comments)
-        ))
+        .pipe(vinylReadmeRenderStream(context))
         .pipe(rename(path => ({
           ...path,
           basename: path.basename.replace(/^\./, ''),
@@ -116,5 +152,14 @@ export const renderReadmeFromFs = ({
       stream.on('finish', resolve)
       stream.on('error', reject)
     })
+
+    const todoPromise = todo
+      ? renderTodo(
+          path.join(cwd, dest, 'todo.md'),
+          context.todo
+        )
+      : Promise.resolve()
+
+    return Promise.all([readmePromise, todoPromise]).then(() => undefined)
   })
 )

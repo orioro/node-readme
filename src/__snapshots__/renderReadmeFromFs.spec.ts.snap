@@ -8,12 +8,12 @@ Parses source code looking for JSDoc-like comments.
 
 # API
 
-- fixture-1/index.ts
+- src/index.ts
   - [\`[CustomType](#customtype)\`](#customtype)]
-  - [func1(strParam, numParam)](#func1strparam-numparam)]
-  - [func2(param1, param2)](#func2param1-param2)]
-- fixture-1/someMethod.ts
-  - [someMethod(param)](#somemethodparam)]
+  - [\`func1(strParam, numParam)\`](#func1strparam-numparam)]
+  - [\`func2(param1, param2)\`](#func2param1-param2)]
+- src/someMethod.ts
+  - [\`someMethod(param)\`](#somemethodparam)]
 
 
 ##### \`CustomType\`
@@ -24,7 +24,7 @@ nisi ut aliquip ex ea commodo consequat.
 - \`name\` {\`String\`}
 - \`bool\` {\`Boolean\`}
 
-##### func1(strParam, numParam)
+##### \`func1(strParam, numParam)\`
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -46,7 +46,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 - Returns: \`result\` {\`boolean\`} Nam libero tempore, cum soluta nobis est
                           eligendi optio.
 
-##### func2(param1, param2)
+##### \`func2(param1, param2)\`
 
 Aliquam at metus molestie, luctus arcu id, ornare ligula.
 View \`[func1](#func1strparam-numparam)\`
@@ -57,9 +57,16 @@ View \`[func1](#func1strparam-numparam)\`
 - \`param2\` {\`number\`}
 - Returns: \`result\` {\`CustomType\`} 
 
-##### someMethod(param)
+##### \`someMethod(param)\`
 
 - \`param\` {\`number\`}
 - Returns: \`result\` {\`number\`} Lorem ipsum dolor sit amet, consectetur adipiscing
+"
+`;
+
+exports[`renderReadmeFromFs  2`] = `
+"- #3     | Some issue (src/index.ts)
+- -      | Something to be done (src/someMethod.ts)
+- #45:OK | Something to be done that already has an issue number (src/someMethod.ts)
 "
 `;
