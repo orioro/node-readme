@@ -10,15 +10,17 @@ describe('renderReadmeFromFs', () => {
     return renderReadmeFromFs({
       templatesSrc: ['**/.*.md'],
       commentsSrc: [
-        '**/*.js',
-        '**/*.jsx',
-        '**/*.ts',
-        '**/*.tsx',
+        'src/**/*.js',
+        'src/**/*.jsx',
+        'src/**/*.ts',
+        'src/**/*.tsx',
       ],
-      cwd: FIXTURES_PATH
+      cwd: path.join(FIXTURES_PATH, 'fixture-1'),
     })
     .then(() => {
       expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/readme.md'), 'utf8'))
+        .toMatchSnapshot()
+      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/todo.md'), 'utf8'))
         .toMatchSnapshot()
     })
   })

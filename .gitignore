@@ -5,3 +5,4 @@ dist
 coverage
 tmp
 test/fixture-1/readme.md
+test/fixture-1/todo.md

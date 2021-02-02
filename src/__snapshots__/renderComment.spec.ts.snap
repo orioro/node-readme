@@ -10,7 +10,7 @@ Integer finibus mi sed erat condimentum rhoncus id eu ligula. Mauris sed odio or
 `;
 
 exports[`renderFunctionComment(comment) 1`] = `
-"##### someFunction(param1, param2, param3, param4)
+"##### \`someFunction(param1, param2, param3, param4)\`
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
