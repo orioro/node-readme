@@ -26,7 +26,7 @@ export const renderCommentTitle = (comment) => {
 }
 
 const renderProp = (prop, level = 0) => stringFromLines([
-  `${' '.repeat(level * 2)}- \`${prop.name}\` {\`${prop.type}\`}`,
+  `${' '.repeat(level * 2)}- \`${prop.name}\` {${prop.type}}`,
   ...(prop.properties || []).map(property => renderProp(property, level + 1))
 ])
 
@@ -44,7 +44,7 @@ export const renderFunctionComment = (comment, level = 5) => stringFromLines([
     ? renderPropList(comment.params)
     : false,
   comment.returns
-    ? `- Returns: ${comment.returns.name ? `\`${comment.returns.name}\` ` : ''}{\`${comment.returns.type}\`} ${comment.returns.description || ''}`
+    ? `- Returns: ${comment.returns.name ? `\`${comment.returns.name}\` ` : ''}{${comment.returns.type}} ${comment.returns.description || ''}`
     : false,
 ])
 
