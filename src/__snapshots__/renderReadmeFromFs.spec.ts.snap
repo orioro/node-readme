@@ -9,11 +9,11 @@ Parses source code looking for JSDoc-like comments.
 # API
 
 - src/index.ts
-  - [\`[CustomType](#customtype)\`](#customtype)]
-  - [\`func1(strParam, numParam)\`](#func1strparam-numparam)]
-  - [\`func2(param1, param2)\`](#func2param1-param2)]
+  - [\`CustomType\`](#customtype)
+  - [\`func1(strParam, numParam)\`](#func1strparam-numparam)
+  - [\`func2(param1, param2)\`](#func2param1-param2)
 - src/someMethod.ts
-  - [\`someMethod(param)\`](#somemethodparam)]
+  - [\`someMethod(param)\`](#somemethodparam)
 
 
 ##### \`CustomType\`
@@ -21,8 +21,8 @@ Parses source code looking for JSDoc-like comments.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 nisi ut aliquip ex ea commodo consequat.
 
-- \`name\` {\`String\`}
-- \`bool\` {\`Boolean\`}
+- \`name\` {String}
+- \`bool\` {Boolean}
 
 ##### \`func1(strParam, numParam)\`
 
@@ -41,26 +41,26 @@ const result = func1('some string', 10)
 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- \`strParam\` {\`string\`}
-- \`numParam\` {\`number\`}
-- Returns: \`result\` {\`boolean\`} Nam libero tempore, cum soluta nobis est
+- \`strParam\` {string}
+- \`numParam\` {number}
+- Returns: \`result\` {boolean} Nam libero tempore, cum soluta nobis est
                           eligendi optio.
 
 ##### \`func2(param1, param2)\`
 
 Aliquam at metus molestie, luctus arcu id, ornare ligula.
-View \`[func1](#func1strparam-numparam)\`
+View \`func1\`
 
-- \`param1\` {\`Object\`}
-  - \`opt1\` {\`string\`}
-  - \`opt2\` {\`string\`}
-- \`param2\` {\`number\`}
-- Returns: \`result\` {\`CustomType\`} 
+- \`param1\` {Object}
+  - \`opt1\` {string}
+  - \`opt2\` {string}
+- \`param2\` {number}
+- Returns: \`result\` {[CustomType](#customtype)} 
 
 ##### \`someMethod(param)\`
 
-- \`param\` {\`number\`}
-- Returns: \`result\` {\`number\`} Lorem ipsum dolor sit amet, consectetur adipiscing
+- \`param\` {number}
+- Returns: \`result\` {number} Lorem ipsum dolor sit amet, consectetur adipiscing
 "
 `;
 

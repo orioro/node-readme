@@ -22,6 +22,22 @@ const REFERRABLE_COMMENT_TYPES = [
   'typedef'
 ]
 
+const strReplaceAll = (str, search, replacement) => {
+  return str.replace(new RegExp(search, 'g'), replacement)
+}
+
+const linkInnerTypeReferences = (comments, text) => {
+  return comments.reduce((acc, comment) => (
+    REFERRABLE_COMMENT_TYPES.includes(comment.commentType)
+      ? strReplaceAll(
+          acc,
+          `{${comment.name}}`,
+          `{[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})}`
+        )
+      : acc
+  ), text) 
+}
+
 export const vinylReadmeRenderStream = (context) => {
   return new Transform({
     objectMode: true,
@@ -30,17 +46,13 @@ export const vinylReadmeRenderStream = (context) => {
         this.emit('error', Error('@orioro/readme: Streams files are not supported'))
         return cb()
       } else if (file.isBuffer()) {
-        const rendered = context.comments.reduce((acc, comment) => (
-          REFERRABLE_COMMENT_TYPES.includes(comment.commentType)
-            ? acc.replace(
-                `\`${comment.name}\``,
-                `\`[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})\``
-              )
-            : acc
-        ), templateRender(
-          file.contents.toString('utf8'),
-          context
-        )) 
+        const rendered = linkInnerTypeReferences(
+          context.comments,
+          templateRender(
+            file.contents.toString('utf8'),
+            context
+          )
+        )
 
         file.contents = Buffer.from(
           rendered + '\n',

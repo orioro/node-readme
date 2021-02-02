@@ -33,7 +33,7 @@ const filterToc = (items, level = 0) => {
   items = ensureArray(items)
 
   return items
-    .map(item => (`${' '.repeat(level * 2)}- [${renderCommentTitle(item)}](#${toc.slugify(renderCommentTitle(item))})]`))
+    .map(item => (`${' '.repeat(level * 2)}- [${renderCommentTitle(item)}](#${toc.slugify(renderCommentTitle(item))})`))
     .join('\n')
 }
 

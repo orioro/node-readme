@@ -5,8 +5,8 @@ exports[`renderDefaultComment(comment) 1`] = `
 
 Integer finibus mi sed erat condimentum rhoncus id eu ligula. Mauris sed odio orci.
 
-- \`prop1\` {\`string\`}
-- \`prop2\` {\`boolean\`}"
+- \`prop1\` {string}
+- \`prop2\` {boolean}"
 `;
 
 exports[`renderFunctionComment(comment) 1`] = `
@@ -14,13 +14,13 @@ exports[`renderFunctionComment(comment) 1`] = `
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
-- \`param1\` {\`String\`}
-- \`param2\` {\`SomeSpecialType\`}
-- \`param3\` {\`Object\`}
-  - \`key1\` {\`Number\`}
-  - \`key2\` {\`String\`}
-- \`param4\` {\`Object[]\`}
-  - \`key1\` {\`Number\`}
-  - \`key2\` {\`String\`}
-- Returns: \`result\` {\`SomeType\`} Some result description"
+- \`param1\` {String}
+- \`param2\` {SomeSpecialType}
+- \`param3\` {Object}
+  - \`key1\` {Number}
+  - \`key2\` {String}
+- \`param4\` {Object[]}
+  - \`key1\` {Number}
+  - \`key2\` {String}
+- Returns: \`result\` {SomeType} Some result description"
 `;
