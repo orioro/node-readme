@@ -29,10 +29,12 @@ const strReplaceAll = (str, search, replacement) => {
 const linkInnerTypeReferences = (comments, text) => {
   return comments.reduce((acc, comment) => (
     REFERRABLE_COMMENT_TYPES.includes(comment.commentType)
-      ? strReplaceAll(
-          acc,
-          `{${comment.name}}`,
-          `{[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})}`
+      ? acc.replace(
+          new RegExp(`{.*?${comment.name}.*?}`, 'g'),
+          match => match.replace(
+            comment.name,
+            `[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})`
+          )
         )
       : acc
   ), text) 

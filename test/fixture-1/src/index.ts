@@ -46,10 +46,10 @@ const func1 = (
  *
  * @function func2
  * @param {Object} param1
- * @param {string} param1.opt1 Some option
+ * @param {CustomType} param1.opt1 Some option
  * @param {string} param1.opt2 Some other option
- * @param {number} param2
- * @returns {CustomType} result
+ * @param {CustomType} param2
+ * @returns {CustomType | null} result
  */
 const func2 = (
   param1,

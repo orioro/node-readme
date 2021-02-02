@@ -3,8 +3,7 @@
 exports[`renderReadmeFromFs  1`] = `
 "# readme
 
-Helper utility to generate \`readme.md\` files for projects.
-Parses source code looking for JSDoc-like comments.
+Cras pharetra massa ac est convallis, id placerat nulla auctor. Pellentesque fermentum, lectus ut porttitor egestas, ligula mi rhoncus est, sit amet aliquet purus dolor eget nisi. Nunc sodales lectus augue, id porta ligula euismod non. In volutpat pellentesque purus bibendum porttitor.
 
 # API
 
@@ -52,10 +51,10 @@ Aliquam at metus molestie, luctus arcu id, ornare ligula.
 View \`func1\`
 
 - \`param1\` {Object}
-  - \`opt1\` {string}
+  - \`opt1\` {[CustomType](#customtype)}
   - \`opt2\` {string}
-- \`param2\` {number}
-- Returns: \`result\` {[CustomType](#customtype)} 
+- \`param2\` {[CustomType](#customtype)}
+- Returns: \`result\` {[CustomType](#customtype) | null} 
 
 ##### \`someMethod(param)\`
 
