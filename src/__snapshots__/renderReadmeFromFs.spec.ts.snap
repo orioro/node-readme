@@ -65,7 +65,7 @@ View \`func1\`
 
 exports[`renderReadmeFromFs  2`] = `
 "- #3     | Some issue (src/index.ts)
-- -      | Something to be done (src/someMethod.ts)
 - #45:OK | Something to be done that already has an issue number (src/someMethod.ts)
+- -      | Something to be done (src/someMethod.ts)
 "
 `;

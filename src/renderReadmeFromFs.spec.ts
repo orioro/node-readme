@@ -18,9 +18,9 @@ describe('renderReadmeFromFs', () => {
       cwd: path.join(FIXTURES_PATH, 'fixture-1'),
     })
     .then(() => {
-      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/readme.md'), 'utf8'))
+      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/README.md'), 'utf8'))
         .toMatchSnapshot()
-      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/todo.md'), 'utf8'))
+      expect(fs.readFileSync(path.join(FIXTURES_PATH, 'fixture-1/TODO.md'), 'utf8'))
         .toMatchSnapshot()
     })
   })

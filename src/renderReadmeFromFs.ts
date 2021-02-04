@@ -170,7 +170,7 @@ export const renderReadmeFromFs = ({
 
     const todoPromise = todo
       ? renderTodo(
-          path.join(cwd, dest, 'todo.md'),
+          path.join(cwd, dest, 'TODO.md'),
           context.todo
         )
       : Promise.resolve()
