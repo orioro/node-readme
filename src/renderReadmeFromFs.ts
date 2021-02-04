@@ -160,7 +160,7 @@ export const renderReadmeFromFs = ({
         .pipe(vinylReadmeRenderStream(context))
         .pipe(rename(path => ({
           ...path,
-          basename: path.basename.replace(/^\./, ''),
+          basename: path.basename.replace(/^\./, '').toUpperCase(),
         })))
         .pipe(vinylFs.dest(dest, { cwd }))
 
