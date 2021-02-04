@@ -27,16 +27,23 @@ const strReplaceAll = (str, search, replacement) => {
 }
 
 const linkInnerTypeReferences = (comments, text) => {
-  return comments.reduce((acc, comment) => (
+  const referrableComments = comments.filter(comment => (
     REFERRABLE_COMMENT_TYPES.includes(comment.commentType)
-      ? acc.replace(
-          new RegExp(`{.*?${comment.name}.*?}`, 'g'),
-          match => match.replace(
-            comment.name,
-            `[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})`
-          )
-        )
-      : acc
+  ))
+  .sort((commentA, commentB) => (
+    commentA.name.length > commentB.name.length
+      ? -1
+      : 1
+  ))
+
+  return referrableComments.reduce((acc, comment) => (
+    acc.replace(
+      new RegExp(`{.*?${comment.name}.*?}`, 'g'),
+      match => match.replace(
+        comment.name,
+        `[${comment.name}](#${toc.slugify(renderCommentTitle(comment))})`
+      )
+    )
   ), text) 
 }
 
