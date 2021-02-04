@@ -1,7 +1,7 @@
 # readme
 
-Helper utility to generate `readme.md` files for projects.
-Parses source code looking for JSDoc-like comments.
+Helper utility to generate `README.md` and `TODO.md` files based on source code
+JSDoc comments
 
 ## API
 
