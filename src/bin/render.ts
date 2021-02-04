@@ -16,7 +16,7 @@ const renderWithTimer = (config) => {
 
 const DEFAULT_README_CONF = {
     templatesSrc: [
-      '.readme.md',
+      '.*.md',
       'src/**/*.md'
     ],
     commentsSrc: [
